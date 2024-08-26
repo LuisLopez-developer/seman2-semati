@@ -36,8 +36,8 @@ public class DataBaseActivity extends AppCompatActivity {
         if(!code.isEmpty() && !description.isEmpty() && !price.isEmpty()){
             ContentValues register = new ContentValues();
             register.put("codido", code);
-            register.put("description", code);
-            register.put("precio", code);
+            register.put("description", description);
+            register.put("precio", price);
 
             db.insert("articulos", null, register);
             db.close();
