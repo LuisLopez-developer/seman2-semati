@@ -45,9 +45,7 @@ public class DataBaseActivity extends AppCompatActivity {
             db.insert("articulos", null, register);
             db.close();
 
-            binding.txtCode.setText("");
-            binding.txtDescription.setText("");
-            binding.txtPrice.setText("");
+            clearInputs();
 
             Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
         }else{
@@ -127,6 +125,7 @@ public class DataBaseActivity extends AppCompatActivity {
 
                     if (rowsAffected > 0) {
                         Toast.makeText(this, "Producto actualizado exitosamente", Toast.LENGTH_SHORT).show();
+                        clearInputs();
                     } else {
                         Toast.makeText(this, "Error al actualizar el producto", Toast.LENGTH_SHORT).show();
                     }
@@ -145,6 +144,12 @@ public class DataBaseActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "El código del producto es requerido", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void clearInputs(){
+        binding.txtCode.setText("");
+        binding.txtDescription.setText("");
+        binding.txtPrice.setText("");
     }
 
 }
