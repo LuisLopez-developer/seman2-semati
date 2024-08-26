@@ -26,6 +26,7 @@ public class DataBaseActivity extends AppCompatActivity {
         binding.btnProductRegister.setOnClickListener(v -> registerPorduct());
         binding.btnProductUpdate.setOnClickListener(v -> updateProduct());
         binding.btnProductSearch.setOnClickListener(v -> searchProduct());
+        binding.btnProductDelete.setOnClickListener(v -> deleteProduct());
     }
 
     private void registerPorduct() {
@@ -54,7 +55,25 @@ public class DataBaseActivity extends AppCompatActivity {
     }
 
     private void deleteProduct(){
+        Administrador admin = new Administrador(this, "administracion", null, 1);
+        SQLiteDatabase db = admin.getWritableDatabase();
 
+        String code = binding.txtCode.getText().toString();
+
+        if (!code.isEmpty()) {
+            int deletedRows = db.delete("articulos", "codigo = ?", new String[]{code});
+
+            if (deletedRows > 0) {
+                clearInputs();
+                Toast.makeText(this, "Producto eliminado", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "No existe un artículo con ese código", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Debes ingresar el código del producto", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
     }
 
     private void searchProduct(){
