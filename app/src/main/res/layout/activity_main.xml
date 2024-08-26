@@ -85,6 +85,16 @@
             android:layout_gravity="end"
             android:backgroundTint="@color/secondary"
             android:text="@string/Sign_In" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/transparent_white"
+            android:text="@string/newUser"
+            android:textColor="@color/neutral_700"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
