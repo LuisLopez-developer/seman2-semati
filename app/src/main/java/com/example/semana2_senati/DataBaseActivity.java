@@ -119,7 +119,6 @@ public class DataBaseActivity extends AppCompatActivity {
             String selection = "codigo = ?";
             String[] selectionArgs = new String[]{ code };
 
-            // Ejecuta la consulta
             Cursor cursor = db.query("articulos", column, selection, selectionArgs, null, null, null);
 
             if (cursor != null && cursor.getCount() > 0) {
@@ -127,7 +126,7 @@ public class DataBaseActivity extends AppCompatActivity {
 
                 ContentValues values = new ContentValues();
 
-                // Solo agrega los valores que no están vacíos
+                // Agregar los valores que no estan vacios
                 if (!description.isEmpty()) {
                     values.put("description", description);
                 }

@@ -16,4 +16,10 @@
     <string name="update">Modificar Producto</string>
     <string name="delete">Eliminar Producto</string>
 
+    <!-- Login -->
+    <string name="Sign_In">Iniciar sesión</string>
+    <string name="titleLogin">Hola! Identifiquese para iniciar sesión</string>
+    <string name="password">Contraseña</string>
+    <string name="email">Correo electronico</string>
+
 </resources>
