@@ -13,28 +13,29 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.semana2_senati.data.User;
+import com.example.semana2_senati.databinding.ActivityRegisterBinding;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private ActivityDataBaseBinding binding;
+    private ActivityRegisterBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityDataBaseBinding.inflate(getLayoutInflater());
+        binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.btnUserRegister.setOnClickListener(v -> registerUser());
+        binding.button.setOnClickListener(v -> registerUser());
     }
 
     private void registerUser() {
-        User admin = new User(this, "user", null, 1);
+        User admin = new User(this, "users", null, 1);
 
         SQLiteDatabase db = admin.getWritableDatabase();
         String correo = binding.etEmail.getText().toString().trim();
         String contraseña = binding.etPassword.getText().toString().trim();
-        String usuario = binding.etUserName.getText().toString().trim();
+        String usuario = binding.etUser.getText().toString().trim();
 
         if(!correo.isEmpty() && !contraseña.isEmpty() && !usuario.isEmpty()){
             ContentValues register = new ContentValues();
@@ -59,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void clearInputs() {
         binding.etEmail.setText("");
         binding.etPassword.setText("");
-        binding.etUserName.setText("");
+        binding.etUser.setText("");
     }
 
 }
