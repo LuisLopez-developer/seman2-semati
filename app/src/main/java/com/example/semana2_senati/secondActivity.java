@@ -19,11 +19,17 @@ public class secondActivity extends AppCompatActivity {
         binding = ActivitySecondBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.buttonBack.setOnClickListener(v -> back(v));
+        binding.btnSignOut.setOnClickListener(v -> back(v));
+        binding.btnViewPanel.setOnClickListener(v -> viewPanel(v));
     }
 
     public void back(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void viewPanel(View view){
+        Intent intent = new Intent(this, DataBaseActivity.class);
         startActivity(intent);
     }
 }

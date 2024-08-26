@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/neutral_600"
+        android:text="@string/Sign_Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,12 +30,16 @@
             android:text="@string/tv2"
             android:layout_marginBottom="15dp"/>
 
-        <Button
-            android:id="@+id/buttonBack"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnViewPanel"
+            android:text="@string/panel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/red"
-            android:text="@string/back_bottom" />
+            android:textStyle="bold"
+            style="@style/mainButton"
+            android:layout_marginBottom="20dp"/>
+
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

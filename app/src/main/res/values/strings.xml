@@ -18,8 +18,11 @@
 
     <!-- Login -->
     <string name="Sign_In">Iniciar sesión</string>
+    <string name="Sign_Out">Cerrar sesión</string>
     <string name="titleLogin">Hola! Identifiquese para iniciar sesión</string>
     <string name="password">Contraseña</string>
     <string name="email">Correo electronico</string>
 
+    <!-- Welcome -->
+    <string name="panel">Ingresar al panel</string>
 </resources>
