@@ -22,10 +22,10 @@ public class DataBaseActivity extends AppCompatActivity {
         binding = ActivityDataBaseBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.btnProductRegister.setOnClickListener(v -> registerPorduct(v));
+        binding.btnProductRegister.setOnClickListener(v -> registerPorduct());
     }
 
-    private void registerPorduct(View v) {
+    private void registerPorduct() {
         Administrador admin = new Administrador(this, "administracion", null, 1);
 
         SQLiteDatabase db = admin.getWritableDatabase();
@@ -52,5 +52,16 @@ public class DataBaseActivity extends AppCompatActivity {
         }
     }
 
+    private void deleteProduct(){
+
+    }
+
+    private void searchProduct(){
+
+    }
+
+    private void updateProduct(){
+
+    }
 
 }
