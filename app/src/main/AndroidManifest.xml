@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Semana2senati"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".DataBaseActivity"
             android:exported="false" />
         <activity
