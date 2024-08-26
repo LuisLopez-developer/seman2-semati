@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Tarea2</string>
+    <string name="next_bottom">Siguiente</string>
+    <string name="tv1">Primer activity</string>
+
+    <string name="back_bottom">Anterior</string>
+    <string name="tv2">Segundo activity</string>
+
+    <!-- database -->
+    <string name="txt_code">Codigo</string>
+    <string name="txt_description">Descripcion</string>
+    <string name="txt_price">Precio</string>
+
+    <string name="register">Registrar Producto</string>
+    <string name="search">Buscar Producto</string>
+    <string name="update">Modificar Producto</string>
+    <string name="delete">Eliminar Producto</string>
+
+</resources>

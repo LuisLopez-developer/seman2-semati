@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DataBaseActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="50dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_code"
+            style="@style/mainTextInputLayout"
+            app:hintTextColor="@color/transparent_white"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/neutral_700"
+            app:boxStrokeColor="@color/secondary"
+            app:boxCollapsedPaddingTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_code"
+                style="@style/mainEditText"
+                android:inputType="number"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_description"
+            style="@style/mainTextInputLayout"
+            app:hintTextColor="@color/transparent_white"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/neutral_700"
+            app:boxStrokeColor="@color/secondary"
+            app:boxCollapsedPaddingTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_description"
+                style="@style/mainEditText"
+                android:inputType="number"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_price"
+            style="@style/mainTextInputLayout"
+            app:hintTextColor="@color/transparent_white"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/neutral_700"
+            app:boxStrokeColor="@color/secondary"
+            app:boxCollapsedPaddingTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_price"
+                style="@style/mainEditText"
+                android:inputType="number"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnProductRegister"
+            android:text="@string/register"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            style="@style/mainButton"
+            android:layout_marginBottom="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnProductSearch"
+            android:text="@string/search"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            style="@style/mainButton"
+            android:layout_marginBottom="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnProductUpdate"
+            android:text="@string/update"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            style="@style/mainButton"
+            android:layout_marginBottom="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnProductDelete"
+            android:text="@string/delete"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            style="@style/mainButton"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
