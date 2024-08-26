@@ -1,6 +1,7 @@
 package com.example.semana2_senati.data;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -30,5 +31,37 @@ public class User extends SQLiteOpenHelper{
         long result = db.insert("users", null, values);
         db.close();
         return result;
+    }
+
+    // Método para validar usuario
+    public boolean validateUser(String correo, String contraseña) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE correo = ? AND contraseña = ?", new String[]{correo, contraseña});
+
+        if (cursor != null && cursor.moveToFirst()) {
+            cursor.close();
+            return true;
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        return false;
+    }
+
+    public String getUserName(String correo) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT usuario FROM users WHERE correo = ?", new String[]{correo});
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String userName = cursor.getString(cursor.getColumnIndexOrThrow("usuario"));
+            cursor.close();
+            return userName;
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        return null;
     }
 }
