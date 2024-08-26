@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.btnRegister.setOnClickListener(v -> register());
+
         binding.button.setOnClickListener(v -> validateLogin());
         createUserExample();
 
@@ -56,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Por favor, ingresa tu correo y contraseña", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void register(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
 }
