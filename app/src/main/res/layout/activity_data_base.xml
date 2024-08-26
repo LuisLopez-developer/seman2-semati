@@ -29,7 +29,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_code"
                 style="@style/mainEditText"
-                android:inputType="number"
+                android:inputType="text"
                 android:layout_gravity="center"
                 android:layout_marginBottom="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -48,7 +48,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_description"
                 style="@style/mainEditText"
-                android:inputType="number"
+                android:inputType="text"
                 android:layout_gravity="center"
                 android:layout_marginBottom="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -67,7 +67,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_price"
                 style="@style/mainEditText"
-                android:inputType="number"
+                android:inputType="text"
                 android:layout_gravity="center"
                 android:layout_marginBottom="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
