@@ -1,8 +1,6 @@
 package com.example.semana2_senati.data;
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -34,35 +32,35 @@ public class User extends SQLiteOpenHelper{
         return result;
     }
 
-    @SuppressLint("Range")
-    public String getUser(String correo) {
+    // Método para validar usuario
+    public boolean validateUser(String correo, String contraseña) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String userName = null;
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE correo = ? AND contraseña = ?", new String[]{correo, contraseña});
 
-        // Definir la cláusula WHERE
-        String selection = "correo = ?";
-        String[] selectionArgs = new String[]{ correo };
-
-        // Consultar la base de datos
-        Cursor cursor = db.query(
-                "users",           // Nombre de la tabla
-                new String[]{"usuario"}, // Columnas a recuperar
-                selection,         // Cláusula WHERE
-                selectionArgs,     // Argumentos de selección
-                null,              // Agrupamiento (GROUP BY)
-                null,              // Cláusula HAVING
-                null               // Ordenamiento (ORDER BY)
-        );
-
-        // Verificar si el cursor tiene algún resultado
         if (cursor != null && cursor.moveToFirst()) {
-            // Extraer el nombre de usuario
-            userName = cursor.getString(cursor.getColumnIndex("usuario"));
             cursor.close();
+            return true;
         }
 
-        db.close();
-        return userName;
+        if (cursor != null) {
+            cursor.close();
+        }
+        return false;
     }
 
+    public String getUserName(String correo) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT usuario FROM users WHERE correo = ?", new String[]{correo});
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String userName = cursor.getString(cursor.getColumnIndexOrThrow("usuario"));
+            cursor.close();
+            return userName;
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        return null;
+    }
 }

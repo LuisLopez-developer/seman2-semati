@@ -22,17 +22,40 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.button.setOnClickListener(v -> next(v));
+        binding.button.setOnClickListener(v -> validateLogin());
         createUserExample();
-    }
 
-    public void next(View view){
-        Intent intent = new Intent(this, DataBaseActivity.class);
-        startActivity(intent);
     }
 
     private void createUserExample() {
         User userDbHelper = new User(this, "User", null, 1);
         long result = userDbHelper.createUser("luis@senati.com", "contra123", "Equipo Devs");
     }
+
+    private void validateLogin() {
+        String correo = binding.etEmail.getText().toString().trim();
+        String contraseña = binding.etPassword.getText().toString().trim();
+
+        if (!correo.isEmpty() && !contraseña.isEmpty()) {
+            User userDbHelper = new User(this, "User", null, 1);
+            boolean isValidUser = userDbHelper.validateUser(correo, contraseña);
+
+            if (isValidUser) {
+                // Obtener el nombre del usuario
+                String userName = userDbHelper.getUserName(correo);
+
+                // Crear un intent para pasar al siguiente Activity
+                Intent intent = new Intent(this, secondActivity.class);
+                intent.putExtra("USER_NAME", userName);  // Pasar el nombre del usuario
+                startActivity(intent);
+
+                Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Correo o contraseña equivocada", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Por favor, ingresa tu correo y contraseña", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
