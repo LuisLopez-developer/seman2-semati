@@ -48,20 +48,4 @@ public class User extends SQLiteOpenHelper{
         }
         return false;
     }
-
-    public String getUserName(String correo) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT usuario FROM users WHERE correo = ?", new String[]{correo});
-
-        if (cursor != null && cursor.moveToFirst()) {
-            String userName = cursor.getString(cursor.getColumnIndexOrThrow("usuario"));
-            cursor.close();
-            return userName;
-        }
-
-        if (cursor != null) {
-            cursor.close();
-        }
-        return null;
-    }
 }

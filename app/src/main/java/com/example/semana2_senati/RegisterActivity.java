@@ -18,6 +18,7 @@ import com.example.semana2_senati.databinding.ActivityRegisterBinding;
 public class RegisterActivity extends AppCompatActivity {
 
     private ActivityRegisterBinding binding;
+    private User userDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,35 +26,32 @@ public class RegisterActivity extends AppCompatActivity {
 
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        userDatabase = new User(this, "Users", null, 1);
 
-        binding.button.setOnClickListener(v -> registerUser());
+        // Set up the register button click listener
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerUser();
+            }
+        });
     }
 
     private void registerUser() {
-        User admin = new User(this, "users", null, 1);
-
-        SQLiteDatabase db = admin.getWritableDatabase();
+        // Get the input data
         String correo = binding.etEmail.getText().toString().trim();
         String contraseña = binding.etPassword.getText().toString().trim();
         String usuario = binding.etUser.getText().toString().trim();
 
-        if(!correo.isEmpty() && !contraseña.isEmpty() && !usuario.isEmpty()){
-            ContentValues register = new ContentValues();
-            register.put("correo", correo);
-            register.put("contraseña", contraseña);
-            register.put("usuario", usuario);
+        // Call the createUser method
+        long result = userDatabase.createUser(correo, contraseña, usuario);
 
-            long result = db.insert("users", null, register);
-            db.close();
-
-            if (result != -1) {
-                clearInputs();
-                Toast.makeText(this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show();
-            }
+        // Provide feedback to the user
+        if (result != -1) {
+            Toast.makeText(this, "Usuario registrado.", Toast.LENGTH_SHORT).show();
+            clearInputs(); // Clear the input fields after successful registration
         } else {
-            Toast.makeText(this, "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error en el registro. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
         }
     }
 
