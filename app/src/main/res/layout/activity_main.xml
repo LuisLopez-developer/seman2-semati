@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- res/layout/activity_main.xml -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,21 +13,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"/>
+        app:layout_constraintDimensionRatio="1:1" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/titleLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/titleLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         android:gravity="center"
-        android:layout_marginBottom="20dp"
         android:textStyle="bold"
-        android:textSize="16sp"/>
+        android:textSize="18sp"
+        android:layout_marginTop="-20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBackground" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -36,10 +34,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/titleLogin">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/mainTextInputLayout"
@@ -94,6 +92,7 @@
             android:backgroundTint="@color/transparent_white"
             android:text="@string/newUser"
             android:textColor="@color/neutral_700"
+            android:textSize="14sp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"/>
     </LinearLayout>
