@@ -52,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
         if (result != -1) {
             Toast.makeText(this, "Usuario registrado.", Toast.LENGTH_SHORT).show();
             clearInputs(); // Clear the input fields after successful registration
+
+            returnLogin(); // Llevar a la pagina de inicio(Login)
         } else {
             Toast.makeText(this, "Error en el registro. Inténtalo de nuevo.", Toast.LENGTH_SHORT).show();
         }
