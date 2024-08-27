@@ -1,17 +1,10 @@
 package com.example.semana2_senati;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 
-import com.example.semana2_senati.data.Administrador;
-import com.example.semana2_senati.databinding.ActivityDataBaseBinding;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
-
 import com.example.semana2_senati.data.User;
 import com.example.semana2_senati.databinding.ActivityRegisterBinding;
 
@@ -28,23 +21,32 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         userDatabase = new User(this, "Users", null, 1);
 
+        initUI();
+    }
+
+    private void initUI() {
+        initListeners();
+    }
+
+    private void initListeners() {
+        binding.ivBack.setOnClickListener(v -> returnLogin());
         // Set up the register button click listener
-        binding.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerUser();
-            }
-        });
+        binding.button.setOnClickListener(v -> registerUser());
+    }
+
+    private void returnLogin() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void registerUser() {
         // Get the input data
-        String correo = binding.etEmail.getText().toString().trim();
-        String contraseña = binding.etPassword.getText().toString().trim();
-        String usuario = binding.etUser.getText().toString().trim();
+        String email = binding.etEmail.getText().toString().trim();
+        String password = binding.etPassword.getText().toString().trim();
+        String user = binding.etUser.getText().toString().trim();
 
         // Call the createUser method
-        long result = userDatabase.createUser(correo, contraseña, usuario);
+        long result = userDatabase.createUser(email, password, user);
 
         // Provide feedback to the user
         if (result != -1) {
