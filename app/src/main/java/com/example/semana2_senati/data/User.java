@@ -48,4 +48,33 @@ public class User extends SQLiteOpenHelper{
         }
         return false;
     }
+
+    public String getUserNameByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String user = null;
+        String[] columns = {"usuario"};
+        String selection = "email = ?";
+        String[] selectionArgs = {email};
+
+        Cursor cursor = db.query(
+                "users",       // Nombre de la tabla
+                columns,       // Columnas a devolver
+                selection,     // Columnas para la cláusula WHERE
+                selectionArgs, // Valores para la cláusula WHERE
+                null,          // Group by
+                null,          // Having
+                null           // Order by
+        );
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                user = cursor.getString(cursor.getColumnIndexOrThrow("usuario"));
+            }
+            cursor.close();
+        }
+
+        db.close();
+        return user;
+    }
+
 }
