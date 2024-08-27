@@ -53,7 +53,7 @@ public class User extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getReadableDatabase();
         String user = null;
         String[] columns = {"usuario"};
-        String selection = "email = ?";
+        String selection = "correo = ?";
         String[] selectionArgs = {email};
 
         Cursor cursor = db.query(
