@@ -24,10 +24,10 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/twWelcomeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv2"
+            android:text="@string/welcome_message"
             android:layout_marginBottom="15dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -39,7 +39,5 @@
             android:layout_marginBottom="20dp"/>
 
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

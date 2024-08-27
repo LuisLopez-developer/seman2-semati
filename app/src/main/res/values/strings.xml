@@ -6,6 +6,9 @@
     <string name="back_bottom">Anterior</string>
     <string name="tv2">Segundo activity</string>
 
+    <!-- Welcome -->
+    <string name="welcome_message">Bienvenido</string>
+
     <!-- database -->
     <string name="txt_code">Codigo</string>
     <string name="txt_description">Descripcion</string>

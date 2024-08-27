@@ -4,9 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
-import com.example.semana2_senati.databinding.ActivityMainBinding;
 import com.example.semana2_senati.databinding.ActivitySecondBinding;
 
 public class secondActivity extends AppCompatActivity {
@@ -18,17 +15,38 @@ public class secondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySecondBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        binding.btnSignOut.setOnClickListener(v -> back(v));
-        binding.btnViewPanel.setOnClickListener(v -> viewPanel(v));
+    
+        initUI();
     }
 
-    public void back(View view){
+    private void initUI() {
+        initExtras();
+        initListeners();
+    }
+
+    private void initExtras() {
+        Intent intent = getIntent();
+        String userName = intent.getStringExtra("USER_NAME");
+
+        // Set the welcome text with the username
+        if (userName != null) {
+            String welcomeText = String.format("Bienvenido %s", userName);
+            binding.twWelcomeTitle.setText(welcomeText);
+        }
+    }
+
+
+    private void initListeners() {
+        binding.btnSignOut.setOnClickListener(v -> back());
+        binding.btnViewPanel.setOnClickListener(v -> viewPanel());
+    }
+
+    public void back(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void viewPanel(View view){
+    public void viewPanel(){
         Intent intent = new Intent(this, DataBaseActivity.class);
         startActivity(intent);
     }
