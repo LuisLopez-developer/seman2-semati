@@ -19,9 +19,6 @@
             android:name=".DataBaseActivity"
             android:exported="false" />
         <activity
-            android:name=".Administrador"
-            android:exported="false" />
-        <activity
             android:name=".secondActivity"
             android:exported="false" />
         <activity
